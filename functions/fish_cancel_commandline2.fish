@@ -1,4 +1,4 @@
-function __fish_cancel_commandline
+function fish_cancel_commandline2
     set -l cmd (commandline)
     if test -n "$cmd"
         # `commandline -L` prints the line the cursor is on (starting from the prompt), so move the cursor
@@ -6,6 +6,8 @@ function __fish_cancel_commandline
         commandline -C 10000000
         printf (string repeat -n (commandline -L) "\n")
         commandline ""
+
+        emit fish_cancel
     end
 
     # cancel: Close the pager if it's open (#4298)
