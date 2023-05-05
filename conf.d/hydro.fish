@@ -43,6 +43,7 @@ function _hydro_postexec --on-event fish_postexec
     end
 
     test "$CMD_DURATION" -lt $hydro_cmd_duration_threshold && set _hydro_cmd_duration && return
+    set --query hydro_disable_timer && set _hydro_cmd_duration && return
 
     set --local secs (math --scale=1 $CMD_DURATION/1000 % 60)
     set --local mins (math --scale=0 $CMD_DURATION/60000 % 60)
