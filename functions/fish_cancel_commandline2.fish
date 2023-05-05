@@ -1,6 +1,7 @@
 function fish_cancel_commandline2
     set -l cmd (commandline)
     if test -n "$cmd"
+    	echo -sne "\e[K"
         # `commandline -L` prints the line the cursor is on (starting from the prompt), so move the cursor
         # "to the end" then call `commandline -L` to get the total number of lines typed in at the prompt.
         commandline -C 10000000
