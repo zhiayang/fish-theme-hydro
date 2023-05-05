@@ -135,3 +135,12 @@ set --query hydro_symbol_git_ahead || set --global hydro_symbol_git_ahead ↑
 set --query hydro_symbol_git_behind || set --global hydro_symbol_git_behind ↓
 set --query hydro_multiline || set --global hydro_multiline false
 set --query hydro_cmd_duration_threshold || set --global hydro_cmd_duration_threshold 1000
+
+# new stuff
+function _hydro_ssh --on-event fish_prompt
+	if [ -n "$SSH_CLIENT" ]
+		set --global _hydro_prompt_ssh_host "(ssh:"(hostname -s)")"
+	end
+end
+
+set --query hydro_color_last_pwd || set --global hydro_color_last_pwd ""
