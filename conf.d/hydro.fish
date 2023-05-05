@@ -139,7 +139,7 @@ set --query hydro_cmd_duration_threshold || set --global hydro_cmd_duration_thre
 # new stuff
 function _hydro_ssh --on-event fish_prompt
 	if [ -n "$SSH_CLIENT" ]
-		set --global _hydro_prompt_ssh_host "(\e[35m"(hostname -s)"\e[39m) "
+		set --global _hydro_prompt_ssh_host "(\e[35;1m"(hostname -s)"\e[39;22m) "
 	end
 end
 
